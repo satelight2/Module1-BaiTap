@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+:root{
+    --yellow-color: #ffbc34;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+header{
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 200px;
+    transition: 0.5s ease;
+}
+header .icons a{
+    font-size: 18px;
+    color: #fff;
+    margin: 0 5px;
+}
+header .icons a:hover{
+    color: var(--yellow-color);
+}
+
+header .brand{
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: 'Dancing Script', cursive;
+}
+
+header .brand:hover{
+    color: var(--yellow-color);
+}
+
+header .navigation{
+    position: relative;
+}
+
+header .navigation .navigation-items a{
+    position: relative;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 30px;
+    transition: 0.3s ease;
+}
+
+header .navigation .navigation-items a:before{
+    content: '';
+    position: absolute;
+    background: #fff;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    transition: 0.3s ease;
+}
+
+header .navigation .navigation-items a:hover:before{
+    width: 100%;
+    background: var(--yellow-color);
+}
+header .btn__order button{
+    background: var(--yellow-color);
+    padding: 5px 15px;
+    color: white;
+    text-transform: capitalize;
+    font-size: 1.1em;
+    text-decoration: none;
+    border-radius: 50px;
+    border: none;
+}
+header .btn__order button:hover{
+    background:white;
+    color: var(--yellow-color);
+    cursor: pointer;
+}
+
+section{
+    padding: 100px 200px;
+}
+
+.home {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: var(--yellow-color);
+}
+
+.home:before{
+    z-index: 777;
+    content: '';
+    position: absolute;
+    background: rgba(251, 3, 3, 0.034);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.home .content{
+    z-index: 888;
+    color: #fff;
+    width: 70%;
+    margin-top: 50px;
+    display: none;
+}
+
+.home .content.active{
+    display: block;
+}
+
+.home .content h1{
+    font-size: 3.5em;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    line-height: 75px;
+    margin-bottom: 40px;
+    font-family: 'Dancing Script', cursive;
+}
+
+.home .content h1 span{
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.home .content p{
+    margin-bottom: 65px;
+}
+
+.home .content a{
+    background: var(--yellow-color);
+    padding: 15px 35px;
+    color: white;
+    font-size: 1.1em;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 50px;
+}
+
+.home .content a:hover{
+    background:white;
+    color: var(--yellow-color);
+}
+
+
+
+.home img{
+    z-index: 000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slider-navigation{
+    z-index: 888;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: start;
+    transform: translateY(80px);
+    margin-bottom: 12px;
+}
+
+.slider-navigation .nav-btn{
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+    transition: 0.3s ease;
+}
+
+.slider-navigation .nav-btn.active{
+    background: var(--yellow-color);
+}
+
+.slider-navigation .nav-btn:not(:last-child){
+    margin-right: 20px;
+}
+
+.slider-navigation .nav-btn:hover{
+    transform: scale(1.2);
+}
+
+.img-slide{
+    position: absolute;
+    width: 100%;
+    clip-path: circle(0% at 0 50%);
+}
+
+.img-slide.active{
+    clip-path: circle(150% at 0 50%);
+    transition: 2s ease;
+    transition-property: clip-path;
+}
+#about{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 200px;
+    background-color: #212832
+    
+}
+#about img{
+   margin-right: 20px;
+}
+#about .content{
+    margin-left: 60px;
+}
+#about .content h3{
+    color: #fff;
+    font-size: 3.5em;
+    font-weight: 900;
+    line-height: 75px;
+    margin-bottom: 40px;
+    font-family: 'Dancing Script',cursive;
+}
+#about .content p{
+    margin-bottom: 20px;
+    color: #fff;
+}
+#about .content a{
+    background: var(--yellow-color);
+    padding: 15px 35px;
+    color: white;
+    font-size: 1.1em;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 50px;
+}
+#about .content a:hover{
+    background:white;
+    color: var(--yellow-color);
+}
+
+
+
+

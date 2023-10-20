@@ -45,7 +45,7 @@
   
   
 //   // Bài 5: Tam giác vuông 
-// const n = 5; // Đổi giá trị nếu bạn muốn in tam giác lớn hơn hoặc nhỏ hơn
+// const n = 5;
 // for (let i = 1; i <= n; i++) {
 //     let row = '';
 //     for (let j = 1; j <= n; j++) {
@@ -57,28 +57,26 @@
 //     }
 //     console.log(row);
 // }
+ // Bài 6: Số hoàn hảo
+    // function laSoHoanHao(n) {
+    //   let tongUoc = 0;
+    //   for (let i = 1; i < n; i++) {
+    //       if (n % i === 0) {
+    //           tongUoc += i;
+    //       }
+    //   }
+    //   return tongUoc === n;
+    // }
 
-  
-//   // Bài 6: Số hoàn hảo
-    function laSoHoanHao(n) {
-      let tongUoc = 0;
-      for (let i = 1; i < n; i++) {
-          if (n % i === 0) {
-              tongUoc += i;
-          }
-      }
-      return tongUoc === n;
-    }
-
-    const soNhap = +prompt("Nhập một số nguyên: ");
-    if (soNhap > 0) {
-      if (laSoHoanHao(soNhap)) {
-          console.log(`${soNhap} là số hoàn hảo.`);
-      } else {
-          console.log(`${soNhap} không là số hoàn hảo.`);
-      }
-    } else {
-      console.log("Vui lòng nhập số nguyên dương.");
-    }
+    // const soNhap = +prompt("Nhập một số nguyên: ");
+    // if (soNhap > 0) {
+    //   if (laSoHoanHao(soNhap)) {
+    //       console.log(`${soNhap} là số hoàn hảo.`);
+    //   } else {
+    //       console.log(`${soNhap} không là số hoàn hảo.`);
+    //   }
+    // } else {
+    //   console.log("Vui lòng nhập số nguyên dương.");
+    // }
 
 

@@ -9,20 +9,44 @@
 
 <body>
     <script>
-        let count = 0;
-        while (count < 3) {
-            let userInput = prompt("Nhập một giá trị:");
-            if (userInput) {
-                alert("Giá trị hợp lệ: " + userInput);
-                break;
-            } else {
-                count++;
-                alert("Giá trị không hợp lệ. Bạn đã nhập sai " + count + " lần.");
+         document.write('<pre>');
+        for (let i = 1; i <= 5; i++) {
+            for (let j = 1; j <= i; j++) {
+                document.write('*');
             }
+            document.writeln();
         }
-        if (count >= 3) {
-            alert("Bạn đã nhập sai quá 3 lần. Không cho phép nhập nữa.");
+        document.writeln("-------------------------------------");
+        for (let i = 0; i <= 5; i++) {
+            for (let j = 1; j <= 5 - i; j++) {
+                document.write('*');
+            }
+            document.writeln();
         }
+        document.writeln("-------------------------------------");
+        for (let i = 0; i <= 5; i++) {
+            for (let j = 1; j <= 5; j++) {
+                if (i <= 5 - j) {
+                    document.write(' ');
+                } else {
+                    document.write('*');
+                }
+            }
+            document.writeln();
+        }
+        document.writeln("-------------------------------------");
+        for (let i = 0; i <= 5; i++) {
+            for (let j = 1; j <= 5; j++) {
+                if (i >= j) {
+                    document.write(' ');
+                } else {
+                    document.write('*');
+                }
+            }
+            document.writeln();
+        }
+        document.writeln("-------------------------------------");
+
     </script>
 </body>
 

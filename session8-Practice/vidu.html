@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let count = 0;
+        while (count < 3) {
+            let userInput = prompt("Nhập một giá trị:");
+            if (userInput) {
+                alert("Giá trị hợp lệ: " + userInput);
+                break;
+            } else {
+                count++;
+                alert("Giá trị không hợp lệ. Bạn đã nhập sai " + count + " lần.");
+            }
+        }
+        if (count >= 3) {
+            alert("Bạn đã nhập sai quá 3 lần. Không cho phép nhập nữa.");
+        }
+    </script>
+</body>
+
+</html>

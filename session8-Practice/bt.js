@@ -45,17 +45,58 @@
   
   
 //   // Bài 5: Tam giác vuông 
-// const n = 5;
-// for (let i = 1; i <= n; i++) {
-//     let row = '';
-//     for (let j = 1; j <= n; j++) {
-//         if (j <= i) {
-//             row += '*';
-//         } else {
-//             row += ' ';
-//         }
-//     }
-//     console.log(row);
+    const n = 5;
+    for (let i = 1; i <= n; i++) {
+      let row = '';
+        for (let j = 1; j <= i; j++) {
+          row+= '*';
+        }
+          row+= '';
+          console.log(row); 
+      }
+      
+    console.log('------------------------------');
+
+    for (let i = 0; i <= n; i++) {
+      let row = '';
+      for (let j = 1; j <= 5 - i; j++) {
+        row+= '*';
+      }
+        row+= '';
+          console.log(row); 
+
+    }
+  console.log('------------------------------');
+
+  for (let i = 0; i <= n; i++) {
+    let row = '';
+    for (let j = 1; j <= 5; j++) {
+      if(i <= 5 - j){
+        row+= ' ';
+      }else{
+        row+= '*';
+      };
+    }
+      console.log(row);
+  }
+console.log('------------------------------');
+
+  for (let i = 0; i <= n; i++) {
+    let row = '';
+    for (let j = 1; j <= 5; j++) {
+      if(i >= j){
+        row+= ' ';
+      }else{
+        row+= '*';
+      };
+    }
+        console.log(row);
+  }
+  console.log('------------------------------');
+
+
+
+
 // }
  // Bài 6: Số hoàn hảo
     // function laSoHoanHao(n) {

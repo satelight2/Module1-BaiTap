@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm cặp số có tổng bằng 10</title>
+</head>
+<body>
+    <h1>Tìm cặp số có tổng bằng 10</h1>
+  <p>Nhập mảng số, cách nhau bằng dấu phẩy (ví dụ: 1, 2, 3):</p>
+  <input type="text" id="inputArray">
+  <button onclick="findPairs()">Tìm Cặp</button>
+  <div id="result"></div>
+
+  <script>
+    function findPairs() {
+      const inputArray = document.getElementById("inputArray").value.split(",").map(Number);
+      const resultDiv = document.getElementById("result");
+      resultDiv.innerHTML = "";
+
+      function findPairsWithSum10(arr) {
+        const result = [];
+        const numSet = new Set();
+
+        for (let i = 0; i < arr.length; i++) {
+          const complement = 10 - arr[i];
+          if (numSet.has(complement)) {
+            result.push([arr[i], complement]);
+          }
+          numSet.add(arr[i]);
+        }
+
+        return result;
+      }
+
+      const pairs = findPairsWithSum10(inputArray);
+
+      if (pairs.length === 0) {
+        resultDiv.textContent = "Không có cặp số nào có tổng bằng 10.";
+      } else {
+        resultDiv.textContent = "Các cặp số có tổng bằng 10 là:";
+        pairs.forEach(pair => {
+          resultDiv.textContent += `[${pair.join(", ")}] `;
+        });
+      }
+    }
+  </script>
+</body>
+</html>

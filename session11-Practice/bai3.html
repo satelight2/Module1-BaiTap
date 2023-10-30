@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tìm chuỗi có độ dài lớn nhất</h1>
+    <p>Nhập chuỗi: <input type="text" id="inputString"></p>
+    <button onclick="findLongestSubstring()">Tìm chuỗi có độ dài lớn nhất</button>
+    <p>Kết quả: <span id="result"></span></p>
+
+    <script>
+        function findLongestSubstring() {
+            const inputString = document.getElementById("inputString").value;
+            const substrings = [];
+            let currentSubstring = "";
+
+            for (let i = 0; i < inputString.length; i++) {
+                const char = inputString[i];
+
+                if (currentSubstring.includes(char)) {
+                    currentSubstring = currentSubstring.slice(currentSubstring.indexOf(char) + 1);
+                }
+
+                currentSubstring += char;
+
+                if (currentSubstring.length > 1) {
+                    substrings.push(currentSubstring);
+                }
+            }
+
+            if (substrings.length === 0) {
+                document.getElementById("result").textContent = "Không tìm thấy chuỗi nào.";
+            } else {
+                const maxLength = Math.max(...substrings.map(str => str.length));
+                const longestSubstrings = substrings.filter(str => str.length === maxLength);
+                document.getElementById("result").textContent = JSON.stringify(longestSubstrings);
+            }
+        }
+    </script>
+</body>
+</html>

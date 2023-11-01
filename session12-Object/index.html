@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rikkei Stores</title>
+</head>
+
+<body>
+
+    <script>
+        let stores = [
+            { id: 1, name: "Milk", count: 100 },
+            { id: 2, name: "Yakult", count: 100 },
+            { id: 3, name: "Butter", count: 100 }
+        ];
+        let carts = [];
+
+        function startShopping() {
+            while (true) {
+                let choice = prompt("Nhập lựa chọn của bạn (C/R/U/D/E):");
+                switch (choice) {
+                    case 'C':
+                        let productName = prompt("Nhập tên sản phẩm bạn muốn mua:");
+                        let product = stores.find(store => store.name === productName);
+                        if (product && product.count > 0) {
+                            let cartItem = carts.find(item => item.name === productName);
+                            if (cartItem) {
+                                cartItem.count += 1;
+                            } else {
+                                carts.push({ ...product, count: 1 });
+                            }
+                            product.count -= 1;
+                        } else {
+                            alert("Sản phẩm không tồn tại hoặc đã hết hàng!");
+                        }
+                        break;
+
+                    case 'R':
+                        alert("Stores: " + JSON.stringify(stores) + "\nCarts: " + JSON.stringify(carts));
+                        break;
+
+                    case 'U':
+                        let cartIndex = parseInt(prompt("Nhập vị trí sản phẩm bạn muốn cập nhật trong carts (0-based index):"));
+                        if (cartIndex >= 0 && cartIndex < carts.length) {
+                            let newCount = parseInt(prompt("Nhập số lượng mới:"));
+                            let diff = newCount - carts[cartIndex].count;
+                            let storeItem = stores.find(item => item.id === carts[cartIndex].id);
+                            if (storeItem.count - diff >= 0) {
+                                storeItem.count -= diff;
+                                carts[cartIndex].count = newCount;
+                            } else {
+                                alert("Không đủ hàng trong kho để cập nhật!");
+                            }
+                        } else {
+                            alert("Vị trí không tồn tại!");
+                        }
+                        alert("Stores: " + JSON.stringify(stores) + "\nCarts: " + JSON.stringify(carts));
+                        break;
+
+                    case 'D':
+                        let deleteIndex = parseInt(prompt("Nhập vị trí sản phẩm bạn muốn xóa trong carts (0-based index):"));
+                        if (deleteIndex >= 0 && deleteIndex < carts.length) {
+                            let storeItem = stores.find(item => item.id === carts[deleteIndex].id);
+                            storeItem.count += carts[deleteIndex].count;
+                            carts.splice(deleteIndex, 1);
+                        } else {
+                            alert("Vị trí không tồn tại!");
+                        }
+                        alert("Stores: " + JSON.stringify(stores) + "\nCarts: " + JSON.stringify(carts));
+                        break;
+
+                    case 'E':
+                        alert("Cảm ơn bạn đã đến với Rikkei Stores");
+                        return;
+
+                    default:
+                        alert("Lựa chọn không hợp lệ, vui lòng chọn lại!");
+                }
+            }
+        }
+    </script>
+
+    <button onclick="startShopping()">Bắt đầu mua sắm</button>
+
+</body>
+
+</html>

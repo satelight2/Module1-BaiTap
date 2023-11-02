@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="crud.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="above">
+        <h2>my todo list</h2>
+        <div class="add">
+          <input type="text" placeholder="Title" id="input" />
+          <button type="submit" id="btnAdd">add</button>
+        </div>
+        <div class="msg"></div>
+      </div>
+      <div class="bottomd">
+        <div class="list-item">
+          <input type="checkbox" name="" id="chkBox" />
+          <p class="ptext">some thing</p>
+          <span class="title"
+            ><i onclick="editItem(this)" class="fas fa-edit"></i
+          ></span>
+          <span class="delete"
+            ><i onclick="deleteItem(this)" class="fas fa-trash-alt"></i
+          ></span>
+        </div>
+      </div>
+    </div>
+    <script src="crud.js"></script>
+  </body>
+</html>

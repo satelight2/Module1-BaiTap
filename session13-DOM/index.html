@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="noidunglon">
+      <div class="example">
+        <h2>Modal Example</h2>
+        <button>Open Modal</button>
+      </div>
+      <div class="noidungnho">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>Some text in the Modal..</p>
+        </div>
+        <div class="den"></div>
+      </div>
+    </div>
+
+    <script>
+      var example = document.querySelector(".example");
+      var noidungnho = document.querySelector(".noidungnho");
+      var btn = document.querySelector("button");
+      var span = document.querySelector(".close");
+      var den = document.querySelector(".den");
+      btn.onclick = function () {
+        noidungnho.style.display = "block";
+        den.style.display = "block";
+        // example.classList.toggle("modi");
+      };
+      span.onclick = function () {
+        noidungnho.style.display = "none";
+        den.style.display = "none";
+        // example.classList.toggle("modi");
+      };
+      den.onclick = function () {
+        noidungnho.style.display = "none";
+        den.style.display = "none";
+        // example.classList.toggle("modi");
+      };
+    </script>
+  </body>
+</html>

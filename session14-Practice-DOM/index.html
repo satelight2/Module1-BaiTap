@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .comment-container {
+        width: 300px;
+        margin: 10px;
+      }
+
+      .vote-button {
+        border: none;
+        color: #fff;
+        padding: 10px;
+        margin: 5px;
+        cursor: pointer;
+      }
+
+      .selected {
+        background-color: #0074d9;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Voting and Comment App</h1>
+
+    <div class="comment-container">
+      <h2>Leave a Comment</h2>
+      <div id="voting-buttons">
+        <button class="vote-button" value="1">1</button>
+        <button class="vote-button" value="2">2</button>
+        <button class="vote-button" value="3">3</button>
+        <button class="vote-button" value="4">4</button>
+        <button class="vote-button" value="5">5</button>
+        <button class="vote-button" value="6">6</button>
+        <button class="vote-button" value="7">7</button>
+        <button class="vote-button" value="8">8</button>
+        <button class="vote-button" value="9">9</button>
+        <button class="vote-button" value="10">10</button>
+      </div>
+      <textarea id="comment" rows="4" placeholder="Write a comment"></textarea>
+      <button onclick="addComment()">Send</button>
+    </div>
+
+    <div id="comments">
+      <h2>Comments</h2>
+    </div>
+
+    <script>
+      const voteButtons = document.querySelectorAll(".vote-button");
+
+      function highlightButton(button) {
+        voteButtons.forEach((b) => b.classList.remove("selected"));
+        button.classList.add("selected");
+      }
+
+      voteButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          highlightButton(button);
+        });
+      });
+
+      function addComment() {
+        const selectedButton = document.querySelector(".vote-button.selected");
+        if (!selectedButton) {
+          alert("Please select a vote rating.");
+          return;
+        }
+
+        const vote = selectedButton.value;
+        const commentText = document.getElementById("comment").value.trim();
+
+        if (commentText === "") {
+          alert("Please enter a comment.");
+          return;
+        }
+
+        const commentContainer = document.createElement("div");
+        commentContainer.className = "comment-container";
+
+        const commentContent = document.createElement("p");
+        commentContent.textContent = `Vote: ${vote}, Comment: ${commentText}`;
+
+        const editButton = document.createElement("button");
+        editButton.textContent = "Edit";
+        editButton.onclick = () =>
+          editComment(commentContainer, vote, commentText);
+
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.onclick = () => deleteComment(commentContainer);
+
+        commentContainer.appendChild(commentContent);
+        commentContainer.appendChild(editButton);
+        commentContainer.appendChild(deleteButton);
+
+        document.getElementById("comments").appendChild(commentContainer);
+
+        selectedButton.classList.remove("selected");
+        document.getElementById("comment").value = "";
+      }
+
+      function editComment(commentContainer, vote, commentText) {
+        const commentContent = commentContainer.querySelector("p");
+        const originalComment =
+          commentContent.textContent.split("Comment: ")[1];
+
+        const textarea = document.getElementById("comment");
+        textarea.value = originalComment;
+
+        const addButton = document.querySelector(
+          "button[onclick='addComment()']"
+        );
+        addButton.textContent = "Save";
+        addButton.onclick = () => {
+          const newCommentText = textarea.value;
+          commentContent.textContent = `Vote: ${vote}, Comment: ${newCommentText}`;
+
+          addButton.textContent = "Send";
+          addButton.onclick = addComment;
+          textarea.value = "";
+        };
+      }
+
+      function deleteComment(commentContainer) {
+        if (confirm("Are you sure you want to delete this comment?")) {
+          commentContainer.remove();
+        }
+      }
+    </script>
+  </body>
+</html>

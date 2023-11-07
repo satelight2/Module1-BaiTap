@@ -1,0 +1,147 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 110vh;
+  font-family: "Nunito Sans", sans-serif;
+  background-image: linear-gradient(to bottom right, #67b26b, #cdcb4c);
+}
+
+#game {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  overflow-y: hidden;
+}
+
+.control {
+  margin-top: 100px;
+  margin-left: 40px;
+  flex: 10 10 20%;
+  background-color: #fff;
+  height: 40%;
+}
+
+.control h1 {
+  font-family: "Bungee Inline", sans-serif;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.shuffle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.btn-shuffle {
+  width: 100px;
+  height: 50px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+}
+.btn-shuffle:hover {
+  background-color: #655e5e;
+}
+#time,
+#step {
+  font-size: 1.5rem;
+}
+
+.game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex: 0 0 80%;
+}
+
+.memory-game {
+  display: grid;
+  perspective: 1000px;
+}
+
+.memory-card {
+  width: 140px;
+  height: 200px;
+  position: relative;
+  margin: 5px;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.memory-card:active {
+  transform: scale(0.97);
+  transition: transform 0.2s;
+}
+
+.memory-card.flip {
+  transform: rotateY(180deg);
+}
+
+.front-face,
+.back-face {
+  position: absolute;
+  max-width: 100%;
+  backface-visibility: hidden;
+  width: 140px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.front-face {
+  transform: rotateY(180deg);
+}
+
+#end-game {
+  margin: 0 auto;
+  height: 100vh;
+  width: 50%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.info {
+  background-color: #fff;
+  width: 100%;
+  padding: 50px 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#btn-play-again {
+  display: inline-block;
+  width: 130px;
+  height: 50px;
+  margin: 0 1rem;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.info h1 {
+  font-family: "Bungee Inline", sans-serif;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.info p {
+  font-size: 1.5rem;
+  margin-bottom: 3rem;
+}

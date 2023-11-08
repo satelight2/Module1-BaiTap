@@ -4,7 +4,6 @@ const endGameEl = document.querySelector("#end-game");
 const memoryGameEl = document.querySelector(".memory-game");
 
 const btnPlayAgain = document.querySelector("#btn-play-again");
-const btnReload = document.querySelector("#btn-reload");
 
 const shuffleBtn = document.querySelector(".btn-shuffle");
 
@@ -149,15 +148,8 @@ function checkWin() {
     setTimeout(() => {
       gameEl.style.display = "none";
       endGameEl.style.display = "flex";
-
-      updateEndGame();
     }, 1500);
   }
-}
-
-function updateEndGame() {
-  document.querySelector(".time-box p").innerText = convertTime(time);
-  document.querySelector(".step-box p").innerText = `${step} bước`;
 }
 
 renderCards(6);

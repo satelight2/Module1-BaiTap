@@ -98,9 +98,7 @@ function flipCard(card) {
   if (card === firstCard) {
     return;
   }
-
   card.classList.toggle("flip");
-
   if (!firstCard) {
     firstCard = card;
     return;

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout</title>
+    <style>
+      table,
+      tr,
+      td {
+        text-align: center;
+      }
+
+      td {
+        width: 100px;
+        height: 100px;
+      }
+
+      img {
+        width: 80%;
+        height: 80%;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+
+      .checkout-summary {
+        float: left;
+        margin-right: 20px;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .checkout-container {
+        display: flex;
+        width: 80%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .order-summary {
+        flex: 1;
+        padding: 20px;
+      }
+
+      .order-summary h2 {
+        text-align: center;
+      }
+
+      .order-summary table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+      }
+
+      .order-summary th,
+      .order-summary td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: center;
+      }
+
+      .payment-form {
+        flex: 1;
+        padding: 20px;
+        background-color: #f4f4f4;
+      }
+
+      .payment-form form {
+        width: 80%;
+        margin: 0 auto;
+      }
+
+      .payment-form label,
+      .payment-form input {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      .payment-form button {
+        padding: 10px;
+        background-color: #000;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .payment-form button:hover {
+        background-color: #fff;
+        color: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="checkout-container">
+      <div class="order-summary">
+        <h2>Order Summary</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody id="order-summary-body"></tbody>
+          <tfoot>
+            <tr>
+              <th colspan="3">Total:</th>
+              <th id="total-amount">0 VND</th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div class="payment-form">
+        <form id="payment-form">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Enter your name"
+            required
+          />
+          <label for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Enter your email"
+            required
+          />
+          <label for="address">Address</label>
+          <input
+            type="text"
+            name="address"
+            id="address"
+            placeholder="Enter your address"
+            required
+          />
+          <label for="phone">Phone</label>
+          <input
+            type="text"
+            name="phone"
+            id="phone"
+            placeholder="Enter your phone"
+            required
+          />
+          <label for="card-number">Card Number</label>
+          <input
+            type="text"
+            name="card-number"
+            id="card-number"
+            placeholder="Enter your card number"
+            required
+          />
+          <label for="expiration-date">Expiration Date</label>
+          <input
+            type="text"
+            name="expiration-date"
+            id="expiration-date"
+            placeholder="MM/YYYY"
+            required
+          />
+          <label for="cvv">CVV</label>
+          <input
+            type="text"
+            name="cvv"
+            id="cvv"
+            placeholder="Enter CVV"
+            required
+          />
+          <button type="button" onclick="processPayment()">
+            Proceed to Payment
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      const VND = new Intl.NumberFormat("vi-VN", {
+        style: "currency",
+        currency: "VND",
+      });
+
+      let checkLogin = localStorage.getItem("idUser");
+      let users = JSON.parse(localStorage.getItem("users")) || [];
+      console.log(users);
+
+      function renderCheckoutTable() {
+        for (let i = 0; i < users.length; i++) {
+          if (users[i].id == checkLogin) {
+            //check xem user nào đang đăng nhập
+            let text = "";
+            let pay = 0;
+            for (let index = 0; index < users[i].cart.length; index++) {
+              pay +=
+                +users[i].cart[index].quantity * users[i].cart[index].price;
+              text += `
+                                <tr>
+                                    
+                              
+                                    <td><img src=${
+                                      users[i].cart[index].image
+                                    }> </td>
+                                    <td> ${VND.format(
+                                      users[i].cart[index].price
+                                    )}</td>
+                                    <td> 
+                                       
+                                        ${users[i].cart[index].quantity}
+                                     
+                                    </td>
+                                    <td> ${VND.format(
+                                      users[i].cart[index].quantity *
+                                        users[i].cart[index].price
+                                    )} </td>
+                                 
+                                </tr>
+                        `;
+            }
+            document.getElementById("order-summary-body").innerHTML = text;
+            document.getElementById("total-amount").innerHTML = VND.format(pay);
+          }
+          break;
+        }
+      }
+      renderCheckoutTable();
+    </script>
+  </body>
+</html>

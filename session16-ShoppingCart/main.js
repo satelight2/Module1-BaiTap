@@ -1,5 +1,3 @@
-// === HELP FUNCTIONS ===
-// Random id
 function randomId() {
   return Math.floor(Math.random() * 100000);
 }

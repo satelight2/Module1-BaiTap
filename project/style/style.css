@@ -1,0 +1,296 @@
+/* gg font */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Spartan:wght@400;700&family=Roboto:wght@300;400;500;900&display=swap");
+/* @import url("https://cdn-uicons.flaticon.com/2.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css"); */
+/* color */
+:root {
+  --header-height: 4rem;
+  --first-color: hsl(176, 88%, 27%);
+  --first-color-alt: hsl(129, 44%, 94%);
+  --second-color: hsl(34, 94%, 87%);
+  --title-color: hsl(0, 0%, 13%);
+  --text-color: hsl(154, 15%, 32%);
+  --text-color-light: hsl(60, 15%, 56%);
+  --body-color: hsl(0, 0%, 100%);
+  --container-color: hsl(0, 0%, 93%);
+  --border-color: hsl(129, 36%, 85%);
+  --border-color-alt: hsl(113, 15%, 90%);
+  /* --swiper-navigation-color: #e49a38; */
+
+  /* font */
+  --body-font: "Lato", sans-serif;
+  --second-font: "Spartan", sans-serif;
+  --big-font-size: 3.5rem;
+  --h1-font-size: 2.75rem;
+  --h2-font-size: 2.25rem;
+  --h3-font-size: 1.75rem;
+  --h3-font-size: 1.375rem;
+  --large-font-size: 1.125rem;
+  --normal-font-size: 1rem;
+  --small-font-size: 0.875rem;
+  --smaller-font-size: 0.75rem;
+  --tiny-font-size: 0.685rem;
+
+  /* font weight */
+  --weight-400: 400;
+  --weight-500: 500;
+  --weight-600: 600;
+  --weight-700: 700;
+
+  /* transition */
+  --transition: cubic-bezier(0, 0, 0.05, 1);
+}
+/* BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+input,
+textarea,
+body {
+  width: 100%;
+  color: var(--text-color);
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  font-weight: var(--weight-400);
+}
+body {
+  background-color: var(--body-color);
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--second-font);
+  color: var(--title-color);
+  font-weight: var(--weight-600);
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+p {
+  line-height: 1.5rem;
+}
+img {
+  max-width: 100%;
+  /* height: auto; */
+}
+button,
+textarea {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+.container {
+  max-width: 100%;
+  margin-inline: auto;
+  padding-inline: 0.75rem;
+}
+.grid {
+  display: grid;
+  /* grid-template-columns: repeat(12, 1fr); */
+  column-gap: 1.5rem;
+}
+
+.section--lg {
+  padding-block: 4rem;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--body-color);
+  z-index: 1000;
+  border-bottom: 2px solid var(--first-color);
+}
+main {
+  margin: 0 auto;
+  width: 80%;
+  margin-top: calc(var(--header-height) + 2.5rem);
+  /* margin-left: calc(var(--header-height) + 2.5rem); */
+}
+.section {
+  padding-block: 2rem;
+}
+.section__title {
+  font-size: var(--h4-font-size);
+  margin-bottom: 1.5rem;
+}
+.section__title span {
+  color: var(--first-color);
+}
+.form__input {
+  width: 100%;
+  border: 1px solid var(--border-color-alt);
+  padding-inline: 1rem;
+  height: 45px;
+  border-radius: 0.25rem;
+  font-size: var(--small-font-size);
+}
+.nav,
+.nav__menu,
+.nav__list,
+.header__user-actions {
+  display: flex;
+  align-items: center;
+}
+.nav__logo img {
+  margin-left: 30px;
+  width: 150px;
+}
+.nav {
+  background-color: var(--first-color-alt);
+  height: calc(var(--header-height) + 2.5rem);
+  justify-content: space-between;
+  column-gap: 1rem;
+}
+.nav--menu {
+  width: 100%;
+  margin-left: 2.5rem;
+}
+.nav__list {
+  column-gap: 2.5rem;
+  margin-right: auto;
+}
+.nav__link {
+  color: var(--title-color);
+  font-weight: var(--weight-700);
+  /* font-size: var(--normal-font-size); */
+  transition: all 0.2s var(--transition);
+}
+.header__search {
+  /* width: 600px; */
+  position: relative;
+}
+.search__btn {
+  position: absolute;
+  top: 24%;
+  right: 1.25rem;
+  cursor: pointer;
+}
+.active_link,
+.nav__link:hover {
+  color: var(--first-color);
+}
+.header__user-actions {
+  column-gap: 1.5rem;
+}
+.header__action-btn {
+  position: relative;
+}
+.header__action-btn img {
+  width: 30px;
+}
+.header__action-btn .count {
+  position: absolute;
+  top: -0.625rem;
+  right: -0.625rem;
+  background-color: var(--first-color);
+  color: var(--body-color);
+  height: 18px;
+  width: 18px;
+  line-height: 18px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: var(--smaller-font-size);
+}
+.header__user-actions {
+  margin-right: 2.5rem;
+}
+.home__container {
+  grid-template-columns: 5fr 7fr;
+  align-items: center;
+}
+.home__subtitle,
+.home__description {
+  font-size: var(--large-font-size);
+  /* font-weight: var(--weight-600); */
+}
+.home__subtitle {
+  font-family: var(--second-color);
+  font-weight: var(--weight-600);
+  margin-bottom: 1rem;
+  display: block;
+  color: var(--first-color);
+}
+.home__title {
+  font-size: var(--h1-font-size);
+  font-weight: var(--weight-700);
+  line-height: 1.4;
+}
+.home__title span {
+  color: var(--first-color);
+  font-size: var(--big-font-size);
+  display: block;
+}
+.home__description {
+  margin-block: 0.5rem 2rem;
+  /* margin-bottom: 20px; */
+}
+.home__img {
+  justify-self: left;
+}
+.btn {
+  display: inline-block;
+  background-color: var(--first-color);
+  border: 2px solid var(--first-color);
+  color: var(--body-color);
+  padding-inline: 1.75rem;
+  height: 49px;
+  line-height: 46px;
+  border-radius: 0.25rem;
+  font-size: var(--small-font-size);
+  font-weight: var(--weight-600);
+  font-family: var(--second-font);
+  transition: all 0.6s var(--transition);
+}
+.btn:hover {
+  background-color: transparent;
+  color: var(--first-color);
+}
+/* Category Css */
+.categories {
+  overflow: hidden;
+}
+.category__item {
+  text-align: center;
+  border: 1px solid var(--border-color-alt);
+  padding: 0.625rem 0.625rem 1.25rem;
+  border-radius: 1.25rem;
+}
+.category__img {
+  border-radius: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+.category__title {
+  font-size: var(--small-font-size);
+  color: var(--text-color);
+  font-weight: var(--weight-600);
+  margin-bottom: 0.625rem;
+}
+.categories .swiper {
+  overflow: initial;
+}
+.swiper .swiper-button-next::after,
+.swiper .swiper-button-prev::after {
+  content: "";
+}
+.swiper .swiper-button-next,
+.swiper .swiper-button-prev {
+  top: -1.875rem;
+  width: 30px;
+  height: 30px;
+  background-color: var(--first-color-alt);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  color: var(--first-color);
+  font-size: var(--tiny-font-size);
+}
+.swiper .swiper-button-prev {
+  left: initial;
+  right: 2.7rem;
+}

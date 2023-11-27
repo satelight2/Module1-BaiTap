@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="#" />
+
+    <!--=============== FLATICON ===============-->
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css"
+    />
+
+    <!--=============== SWIPER CSS ===============-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="../style/style.css" />
+    <link rel="stylesheet" href="../style/shop.css" />
+    <link rel="stylesheet" href="../style/details.css" />
+
+    <title>Shop</title>
+  </head>
+  <body>
+    <!--=============== HEADER ===============-->
+    <header class="header">
+      <nav class="nav container">
+        <a href="../index.html" class="nav__logo">
+          <img src="../assets/img/logo.svg" alt="" class="nav__logo-img" />
+        </a>
+        <div class="nav__menu" id="nav-menu">
+          <div class="nav__menu-top">
+            <a href="../index.html" class="nav__menu-logo">
+              <img src="../assets/img/logo.svg" alt="" />
+            </a>
+            <div class="nav__close" id="nav-close">
+              <i class="fi fi-rr-cross-small"></i>
+            </div>
+          </div>
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="../index.html" class="nav__link">Home</a>
+            </li>
+            <li class="nav__item">
+              <a href="../pages/shop.html" class="nav__link">Shop</a>
+            </li>
+            <!-- <li class="nav__item">
+              <a href="../pages/account.html" class="nav__link">My Account</a>
+            </li> -->
+            <li class="nav__item">
+              <a href="../pages/compare.html" class="nav__link">Compare</a>
+            </li>
+            <li class="nav__item">
+              <a href="../pages/login-register.html" class="nav__link">Login</a>
+            </li>
+          </ul>
+        </div>
+        <div class="header__user-actions">
+          <button class="button" id="form-open">Login</button>
+          <span class="header__action-say">Hello</span>
+          <a href="wishlist.html" id="a__heart" class="header__action-btn">
+            <img src="../assets/img/icon-heart.svg" alt="" />
+            <span class="count">3</span>
+          </a>
+          <a href="cart.html" id="a__cart" class="header__action-btn">
+            <img
+              class="shopping-cart"
+              src="../assets/img/icon-cart.svg"
+              alt=""
+            />
+            <span class="count cartCount">3</span>
+          </a>
+          <div class="header__action-btn nav__toggle" id="nav-toggle">
+            <img src="assets/img/menu-burger.svg" alt="" />
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="container mt-5">
+      <div
+        class="modal fade"
+        id="loginModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="loginModal"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="loginModal">Login</h5>
+              <button
+                type="button"
+                class="close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="#">
+                <!-- Login Form -->
+                <div id="loginForm">
+                  <div class="mb-3">
+                    <div class="modal-body">
+                      <form action="#">
+                        <div class="mb-3">
+                          <label for="email1" class="form-label"
+                            >Enter your email</label
+                          >
+                          <div class="input-group">
+                            <input
+                              type="email"
+                              class="form-control"
+                              id="email1"
+                              required
+                            />
+                            <span class="input-group-text"
+                              ><i class="uil uil-envelope-alt email"></i
+                            ></span>
+                          </div>
+                        </div>
+                        <div class="mb-3">
+                          <label for="password1" class="form-label"
+                            >Enter your password</label
+                          >
+                          <div class="input-group">
+                            <input
+                              type="password"
+                              class="form-control"
+                              id="password1"
+                              required
+                            />
+                            <span class="input-group-text"
+                              ><i class="uil uil-lock password"></i
+                            ></span>
+                          </div>
+                        </div>
+                        <div class="mb-3 form-check">
+                          <input
+                            type="checkbox"
+                            class="form-check-input"
+                            id="check"
+                          />
+                          <label class="form-check-label" for="check"
+                            >Remember me</label
+                          >
+                        </div>
+                        <a href="#" class="forgot_pw">Forgot password?</a>
+                      </form>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onclick="signIn()"
+                    class="btn btn-primary btn__login"
+                  >
+                    Login Now
+                  </button>
+                  <div class="login_signup">
+                    <span>Don't have an account?</span>
+                    <a href="#" onclick="toggleForms('signupForm')">Signup</a>
+                  </div>
+                </div>
+
+                <!-- Signup Form -->
+                <div id="signupForm" style="display: none">
+                  <div class="mb-3">
+                    <!-- Existing signup form fields here -->
+                    <form action="#">
+                      <h2>Register</h2>
+                      <div class="mb-3">
+                        <label for="userName" class="form-label"
+                          >Enter your name</label
+                        >
+                        <div class="input-group">
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="userName"
+                            required
+                          />
+                          <span class="input-group-text"
+                            ><i class="uil uil-envelope-alt email"></i
+                          ></span>
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="email" class="form-label"
+                          >Enter your email</label
+                        >
+                        <div class="input-group">
+                          <input
+                            type="email"
+                            class="form-control"
+                            id="email"
+                            required
+                          />
+                          <span class="input-group-text"
+                            ><i class="uil uil-envelope-alt email"></i
+                          ></span>
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="password" class="form-label"
+                          >Create password</label
+                        >
+                        <div class="input-group">
+                          <input
+                            type="password"
+                            class="form-control"
+                            id="password"
+                            required
+                          />
+                          <span class="input-group-text"
+                            ><i class="uil uil-lock password"></i
+                          ></span>
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="confirmPassword" class="form-label"
+                          >Confirm password</label
+                        >
+                        <div class="input-group">
+                          <input
+                            type="password"
+                            class="form-control"
+                            id="confirmPassword"
+                            required
+                          />
+                          <span class="input-group-text"
+                            ><i class="uil uil-lock password"></i
+                          ></span>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <button
+                    type="button"
+                    onclick="signUp()"
+                    class="btn btn-success btn__register"
+                  >
+                    Signup Now
+                  </button>
+                  <div class="login_signup">
+                    <span>Already have an account?</span>
+                    <a href="#" onclick="toggleForms('loginForm')">Login</a>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal sign out -->
+
+    <div class="modal fade" id="exampleModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>
+              There a lot of item to shopping today, are you sure to sign out?.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" onclick="signOut()" class="btn btn-primary">
+              Yes, i want SignOut
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--=============== MAIN ===============-->
+    <main class="main">
+      <!--=============== BREADCRUMB ===============-->
+      <section class="breadcrumb">
+        <ul class="breadcrumb__list flex container">
+          <li>
+            <a href="../index.html" class="breadcrumb__link">Home</a>
+          </li>
+          <li><span class="breadcrumb__link">></span></li>
+          <li><span class="breadcrumb__link">Fashion</span></li>
+          <li><span class="breadcrumb__link">></span></li>
+          <li><span class="breadcrumb__link">Henley Shirt</span></li>
+        </ul>
+      </section>
+      <!--=============== Details ===============-->
+      <section class="details section--lg">
+        <div class="details__container container grid">
+          <div class="details__group">
+            <img
+              src="../assets/img/product-8-1.jpg"
+              alt=""
+              class="details__img"
+            />
+            <div class="details__small-images grid">
+              <img
+                src="../assets/img/product-8-2.jpg"
+                alt=""
+                class="details__small-img"
+              />
+              <img
+                src="../assets/img/product-8-1.jpg"
+                alt=""
+                class="details__small-img"
+              />
+              <img
+                src="../assets/img/product-8-2.jpg"
+                alt=""
+                class="details__small-img"
+              />
+            </div>
+          </div>
+          <div class="details__group">
+            <h3 class="details__title">Henley Shirt</h3>
+            <p class="details__brand">Brand : <span>Adidas</span></p>
+
+            <div class="details__price flex">
+              <span class="new__price">$116</span>
+              <span class="old__price">$123</span>
+              <span class="save__price">25% off</span>
+            </div>
+            <p class="short__description">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit qui,
+              quod, id odit ipsam deserunt nulla beatae quibusdam maiores, dolor
+              enim! Architecto provident impedit sed vero voluptates sint hic
+              corporis!
+            </p>
+            <ul class="product__list">
+              <li class="list__item flex">
+                <i class="fi fi-rr-crown"></i> 1 Year AL Jazeera Brand Warranty
+              </li>
+              <li class="list__item flex">
+                <i class="fi fi-rr-refresh"></i> 30 Day Return Policy
+              </li>
+              <li class="list__item flex">
+                <i class="fi fi-rr-credit-card"></i> Cash on Delivery available
+              </li>
+            </ul>
+            <div class="details__color flex">
+              <span class="details__color-title">Color</span>
+              <ul class="color__list">
+                <li>
+                  <a
+                    href="#"
+                    class="color__link"
+                    style="background-color: hsl(37, 100%, 65%)"
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="color__link"
+                    style="background-color: hsl(353, 100%, 37%)"
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="color__link"
+                    style="background-color: hsl(49, 100%, 60%)"
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="color__link"
+                    style="background-color: hsl(304, 100%, 78%)"
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="color__link"
+                    style="background-color: hsl(126, 61%, 52%)"
+                  ></a>
+                </li>
+              </ul>
+            </div>
+            <div class="details__size flex">
+              <span class="details__size-title">Size</span>
+              <ul class="size__list">
+                <li>
+                  <a href="#" class="size__link size-active">M</a>
+                </li>
+                <li>
+                  <a href="#" class="size__link">L</a>
+                </li>
+                <li>
+                  <a href="#" class="size__link">XL</a>
+                </li>
+                <li>
+                  <a href="#" class="size__link">XXL</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="details__actions flex">
+              <input type="number" class="quantity" value="3" />
+              <a href="#" class="btn btn-sm add-cart">Add to cart</a>
+              <a href="#" class="details__action-btn">
+                <i class="fi fi-rr-heart"></i>
+              </a>
+            </div>
+            <ul class="details__meta">
+              <li class="meta__list flex"><span>SKU :</span> FMW15KVT</li>
+              <li class="meta__list flex"><span>Tags :</span> Cloths, Men</li>
+              <li class="meta__list flex">
+                <span>Availabilyty :</span> 8 items in stock
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!--=============== Details tab ===============-->
+      <section class="details__tab container">
+        <div class="detail__tabs">
+          <span class="detail__tab active-tab" data-target="#info1"
+            >Additional Info</span
+          >
+          <span class="detail__tab" data-target="#reviews1">Reviews(3)</span>
+        </div>
+        <div class="details__tabs-content">
+          <div class="details__tab-content active-tab" content id="info1">
+            <table class="info__table">
+              <tr>
+                <th>Stand Up</th>
+                <td>35"L x 24"W x 37-45"H(Front to back weel)</td>
+              </tr>
+              <tr>
+                <th>Folded (w/o wheels)</th>
+                <td>32.5"L x 18.5"W x 16.5"H</td>
+              </tr>
+              <tr>
+                <th>Folded (w/o wheels)</th>
+                <td>32.5"L x 18.5"W x 18"H/td></td>
+              </tr>
+
+              <tr>
+                <th>Door Pass Through</th>
+                <td>24</td>
+              </tr>
+              <tr>
+                <th>Frame</th>
+                <td>Aluminum</td>
+              </tr>
+              <tr>
+                <th>Weight(w/o wheels)</th>
+                <td>20 LBS</td>
+              </tr>
+              <tr>
+                <th>Weight Capacity</th>
+                <td>60LBS</td>
+              </tr>
+              <tr>
+                <th>width</th>
+                <td>24"</td>
+              </tr>
+              <tr>
+                <th>Handle height(ground to Handle)</th>
+                <td>37-45"</td>
+              </tr>
+              <tr>
+                <th>Wheels</th>
+                <td>12" air/ wide track siick tread</td>
+              </tr>
+              <tr>
+                <th>Seat back height</th>
+                <td>21.5"</td>
+              </tr>
+              <tr>
+                <th>Headroom (inside canony)</th>
+                <td>25"</td>
+              </tr>
+              <tr>
+                <th>Color</th>
+                <td>Black, Blue, White, Red</td>
+              </tr>
+              <tr>
+                <th>Size</th>
+                <td>M,S,XL</td>
+              </tr>
+            </table>
+          </div>
+          <div class="details__tab-content" content id="reviews1">
+            <div class="reviews__container gird">
+              <div class="review__single">
+                <div>
+                  <img
+                    src="../assets/img/avatar-1.jpg"
+                    alt=""
+                    class="review__img"
+                  />
+                  <h4 class="review__title">Jacky Chan</h4>
+                </div>
+                <div class="review__data">
+                  <div class="review__rating">
+                    <i class="fi fi-rr-star"></i>
+                    <i class="fi fi-rr-star"></i>
+                    <i class="fi fi-rr-star"></i>
+                    <i class="fi fi-rr-star"></i>
+                    <i class="fi fi-rr-star"></i>
+                  </div>
+                  <div class="review__description">Delivery so fast</div>
+                  <span class="review__date">December 4,2023 at 3:17pm </span>
+                </div>
+              </div>
+              <div class="review__single">
+                <div>
+                  <img
+                    src="../assets/img/avatar-2.jpg"
+                    alt=""
+                    class="review__img"
+                  />
+                  <h4 class="review__title">Huan Phuong</h4>
+                </div>
+                <div class="review__data">
+                  <div class="review__rating">
+                    <i class="fi fi-rr-star"></i>
+                    <i class="fi fi-rr-star"></i>
+                    <i class="fi fi-rr-star"></i>
+                    <i class="fi fi-rr-star"></i>
+                    <i class="fi fi-rr-star"></i>
+                  </div>
+                  <div class="review__description">
+                    The lovely item, thank you so much
+                  </div>
+                  <span class="review__date">September 23,2023 at 5:00am </span>
+                </div>
+              </div>
+              <div class="review__single">
+                <div>
+                  <img
+                    src="../assets/img/avatar-3.jpg"
+                    alt=""
+                    class="review__img"
+                  />
+                  <h4 class="review__title">Tony Teo</h4>
+                </div>
+                <div class="review__data">
+                  <div class="review__rating">
+                    <i class="fi fi-rr-star"></i>
+                    <i class="fi fi-rr-star"></i>
+                    <i class="fi fi-rr-star"></i>
+                    <i class="fi fi-rr-star"></i>
+                    <i class="fi fi-rr-star"></i>
+                  </div>
+                  <div class="review__description">Delivery so fast</div>
+                  <span class="review__date">December 4,2023 at 3:17pm </span>
+                </div>
+              </div>
+            </div>
+            <div class="review__form">
+              <h4 class="review__form--title">Add a review</h4>
+              <div class="rate__product">
+                <i class="fi fi-rr-star"></i>
+                <i class="fi fi-rr-star"></i>
+                <i class="fi fi-rr-star"></i>
+                <i class="fi fi-rr-star"></i>
+                <i class="fi fi-rr-star"></i>
+              </div>
+              <form action="" class="form grid">
+                <textarea
+                  class="form__input textarea"
+                  placeholder="Write your comment"
+                ></textarea>
+                <div class="form__group gird flex">
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    placeholder="Enter your name"
+                    class="form__input"
+                  />
+                  <input
+                    type="email"
+                    name=""
+                    id=""
+                    placeholder="Enter your email"
+                    class="form__input"
+                  />
+                </div>
+                <div class="form__btn">
+                  <button class="btn">Subbmid Review</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--=============== Product tab ===============-->
+
+      <!--=============== NEWSLETTER ===============-->
+      <section class="newsletter section home__newsletter">
+        <div class="newsletter__container container grid">
+          <h3 class="newsletter__title flex">
+            <img
+              src="../assets/img/icon-email.svg"
+              alt=""
+              class="newsletter__icon"
+            />
+            Subscribe to our Newsletter
+          </h3>
+          <p class="newsletter__description">
+            ...and receive %20 coupon for first shopping.
+          </p>
+          <form action="" class="newsletter__form">
+            <input
+              type="text"
+              placeholder="Enter your email"
+              class="newsletter__input"
+            />
+            <button type="submit" class="newsletter__btn">Subscribe</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!--=============== FOOTER ===============-->
+    <footer class="footer container">
+      <div class="footer__container grid">
+        <div class="footer__content">
+          <a href="index.html" class="footer__logo">
+            <img src="../assets/img/logo.svg" alt="" class="footer__logo-img" />
+          </a>
+          <h4 class="footer__subtitle">Contact</h4>
+          <p class="footer__description">
+            <span> Address</span> : Ho Chi Minh City
+          </p>
+          <p class="footer__description"><span> Phone</span> : 0329979798</p>
+          <p class="footer__description">
+            <span> Email</span> : Ngoduy8080@gmail.com
+          </p>
+          <div class="footer__social">
+            <h4 class="footer__subtitle">Follow Me</h4>
+            <div class="footer__social-links flex">
+              <a href="">
+                <img
+                  src="../assets/img/icon-facebook.svg"
+                  alt=""
+                  class="footer__social-icon"
+                />
+              </a>
+              <a href="">
+                <img
+                  src="../assets/img/icon-instagram.svg"
+                  alt=""
+                  class="footer__social-icon"
+                />
+              </a>
+              <a href="">
+                <img
+                  src="../assets/img/icon-pinterest.svg"
+                  alt=""
+                  class="footer__social-icon"
+                />
+              </a>
+              <a href="">
+                <img
+                  src="../assets/img/icon-twitter.svg"
+                  alt=""
+                  class="footer__social-icon"
+                />
+              </a>
+              <a href="">
+                <img
+                  src="../assets/img/icon-youtube.svg"
+                  alt=""
+                  class="footer__social-icon"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="footer__content">
+          <h3 class="footer__title">Address</h3>
+          <ul class="footer__links">
+            <li><a href="" class="footer__link">About Us</a></li>
+            <li><a href="" class="footer__link">Delivery Information</a></li>
+            <li><a href="" class="footer__link">Privacy Policy</a></li>
+            <li><a href="" class="footer__link">Terms & Conditions</a></li>
+            <li><a href="" class="footer__link">Contact Us</a></li>
+            <li><a href="" class="footer__link">Support Center</a></li>
+          </ul>
+        </div>
+        <div class="footer__content">
+          <h3 class="footer__title">My Account</h3>
+          <ul class="footer__links">
+            <li><a href="" class="footer__link">Sign In</a></li>
+            <li><a href="" class="footer__link">View Information</a></li>
+            <li><a href="" class="footer__link">Privacy Policy</a></li>
+            <li><a href="" class="footer__link">Terms & Conditions</a></li>
+            <li><a href="" class="footer__link">Contact Us</a></li>
+            <li><a href="" class="footer__link">Support Center</a></li>
+          </ul>
+        </div>
+        <div class="footer__content">
+          <h3 class="footer__title">Secured Payment Gateways</h3>
+          <img
+            src="../assets/img/payment-method.png"
+            alt=""
+            class="payment__img"
+          />
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="coppyright">&copy; 2023 . All right reserved</p>
+        <p class="designer">Design by NgoDuy</p>
+      </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!--=============== SWIPER JS ===============-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!--=============== MAIN JS ===============-->
+
+    <script src="../js/main.js"></script>
+    <script src="../js/shop.js"></script>
+    <script src="../js/details.js"></script>
+  </body>
+</html>

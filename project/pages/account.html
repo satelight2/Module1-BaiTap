@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="#" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+
+    <!--Bootstrap 5 icons CDN-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <!-- link for flaticon cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="../style/style.css" />
+    <link rel="stylesheet" href="../style/shop.css" />
+    <link rel="stylesheet" href="../style/login-register.css" />
+    <link rel="stylesheet" href="../style/account.css" />
+
+    <title>Shop</title>
+  </head>
+  <body>
+    <!--=============== HEADER ===============-->
+    <header class="header">
+      <nav class="nav container">
+        <a href="../index.html" class="nav__logo">
+          <img src="../assets/img/logo.svg" alt="" class="nav__logo-img" />
+        </a>
+        <div class="nav__menu" id="nav-menu">
+          <div class="nav__menu-top">
+            <a href="index.html" class="nav__menu-logo">
+              <img src="./assets/img/logo.svg" alt="" />
+            </a>
+            <div class="nav__close" id="nav-close">
+              <i class="fi fi-rr-cross-small"></i>
+            </div>
+          </div>
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="account.html" class="nav__link active-link"
+                >My Account</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="header__action-btn nav__toggle" id="nav-toggle">
+          <img src="assets/img/menu-burger.svg" alt="" />
+        </div>
+      </nav>
+    </header>
+
+    <!--=============== MAIN ===============-->
+    <main class="main">
+      <section class="breadcrumb">
+        <ul class="breadcrumb__list flex container">
+          <li>
+            <a href="../index.html" class="breadcrumb__link">Home</a>
+          </li>
+          <li><span class="breadcrumb__link">></span></li>
+          <li><span class="breadcrumb__link">My account</span></li>
+        </ul>
+      </section>
+      <section class="account section--lg">
+        <div class="accounts__container container grid">
+          <div class="account__tabs">
+            <p class="account__tab active-tab" data-target="#dashboard">
+              <i class="fi fi-rr-settings-sliders"></i> Dashboard
+            </p>
+
+            <p class="account__tab" data-target="#orders">
+              <i class="fi fi-rr-shopping-bag"></i> Orders
+            </p>
+
+            <p class="account__tab" data-target="#update-profile">
+              <i class="fi fi-rr-user"></i> Update Profile
+            </p>
+            <p class="account__tab" data-target="#update-orders">
+              <i class="fi fi-rr-user"></i> Manage Orders
+            </p>
+
+            <p class="account__tab" data-target="#address">
+              <i class="fi fi-rr-marker"></i> Address
+            </p>
+
+            <p class="account__tab" data-target="#change-password">
+              <i class="fi fi-rr-user"></i> Change Password
+            </p>
+            <p class="account__tab"><i class="fi fi-rr-exit"></i> Logout</p>
+          </div>
+          <div class="tabs__content">
+            <div class="tab__content active-tab" content id="dashboard">
+              <h3 class="tab__header">Hello</h3>
+              <div class="tab__body">
+                <p class="tab__description">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. In,
+                  cumque iure! Voluptatem doloremque adipisci, maiores dolores
+                  vel dignissimos inventore. Vel saepe rem expedita numquam
+                  velit, facere delectus quae deleniti beatae.
+                </p>
+              </div>
+            </div>
+
+            <div class="tab__content" content id="orders">
+              <h3 class="tab__header">Your orders</h3>
+              <div class="tab__body">
+                <table class="placed__order-table">
+                  <tr>
+                    <th>Order</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                  </tr>
+                  <tr>
+                    <td>#1357</td>
+                    <td>March 4,2023</td>
+                    <td>Processing</td>
+                    <td>$125</td>
+                    <td><a href="" class="view__order">View details</a></td>
+                  </tr>
+                  <tr>
+                    <td>#1358</td>
+                    <td>June 29,2023</td>
+                    <td>Completed</td>
+                    <td>$215</td>
+                    <td><a href="" class="view__order">View details</a></td>
+                  </tr>
+                  <tr>
+                    <td>#1357</td>
+                    <td>August 09,2023</td>
+                    <td>Completed</td>
+                    <td>$343</td>
+                    <td><a href="" class="view__order">View details</a></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <div class="tab__content" content id="update-profile">
+              <h3 class="tab__header">Update Profile</h3>
+              <div class="tab__body">
+                <table class="placed__order-table manageTable">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                      <th>Delete Account</th>
+                    </tr>
+                  </thead>
+                  <tbody id="manage">
+                    <!-- <tr>
+                      <td>#1357</td>
+                      <td>March 4,2023</td>
+                      <td>Processing</td>
+                      <td>$125</td>
+                    </tr> -->
+                  </tbody>
+                </table>
+              </div>
+              <!-- <div class="tab__body">
+                <form action="" class="form grid">
+                  <input
+                    type="text"
+                    placeholder="Username"
+                    class="form__input"
+                  />
+                  <div class="form__btn">
+                    <button class="btn btn--md">Save</button>
+                  </div>
+                </form>
+              </div> -->
+            </div>
+            <div class="tab__content" content id="update-orders">
+              <div class="tab__body">
+                <!-- Filter Section -->
+                <div class="mb-3">
+                  <label for="orderStatusFilter">Filter by Status:</label>
+                  <select
+                    class="form-select"
+                    id="orderStatusFilter"
+                    onchange="applyOrderFilter()"
+                  >
+                    <option value="all">All</option>
+                    <option value="pending">Pending</option>
+                    <option value="pending complete">Pending Complete</option>
+                    <option value="delivered">Delivered</option>
+                    <option value="cancel">Cancel</option>
+                    
+                  </select>
+                </div>
+
+                <!-- Orders Table Section -->
+                <table class="placed__order-table">
+                  <thead>
+                    <tr>
+                      <th>Order</th>
+                      <th>Date</th>
+                      <th>Status</th>
+                      <th>Total</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="manageOrdersTable">
+                    <!-- Orders will be dynamically added here using JavaScript -->
+                  </tbody>
+                </table>
+              </div>
+              <div class="modal fade" id="readOrder">
+                <section class=" modal-dialog modal-dialog-centered modal-lg" style="background-color: #eee;">
+                  <div class="container"  id="readOrderBody">
+               
+                        <!-- <div class="card border-top border-bottom border-3" style="border-color: var(--border-color-alt) !important;" >
+                          <div class="card-body p-5">
+                
+                            <p class="lead fw-bold mb-5" style="color: var(--first-color);">Purchase Reciept</p>
+                
+                            <div class="row">
+                              <div class="col mb-3">
+                                <p class="small text-muted mb-1">Date</p>
+                                <p>10 April 2021</p>
+                              </div>
+                              <div class="col mb-3">
+                                <p class="small text-muted mb-1">Order No.</p>
+                                <p>012j1gvs356c</p>
+                              </div>
+                            </div>
+                
+                            <div class="mx-n5 px-5 py-4" style="background-color: #f2f2f2;">
+                              <div class="row">
+                                <div class="col-md-8 col-lg-3">
+                                  <img src="../assets/img/avatar-1.jpg" alt="">
+                                </div>
+                                <div class="col-md-8 col-lg-6">
+                                  <p>BEATS Solo 3 Wireless Headphones x<span>quantity</span></p>
+                                </div>
+                                <div class="col-md-4 col-lg-3">
+                                  <p>£299.99</p>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-8 col-lg-3">
+                                  <img src="../assets/img/avatar-1.jpg" alt="">
+                                </div>
+                                <div class="col-md-8 col-lg-6">
+                                  <p>BEATS Solo 3 Wireless Headphones x<span>quantity</span></p>
+                                </div>
+                                <div class="col-md-4 col-lg-3">
+                                  <p>£299.99</p>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-8 col-lg-3">
+                                  <img src="../assets/img/avatar-1.jpg" alt="">
+                                </div>
+                                <div class="col-md-8 col-lg-6">
+                                  <p>BEATS Solo 3 Wireless Headphones x<span>quantity</span></p>
+                                </div>
+                                <div class="col-md-4 col-lg-3">
+                                  <p>£299.99</p>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-8 col-lg-9">
+                                  <p class="mb-0">Shipping</p>
+                                </div>
+                                <div class="col-md-4 col-lg-3">
+                                  <p class="mb-0">£33.00</p>
+                                </div>
+                              </div>
+                            </div>
+                
+                            <div class="row my-4">
+                              <div class="col-md-4 offset-md-8 col-lg-3 offset-lg-9">
+                                <p class="lead fw-bold mb-0" style="color: var(--first-color);">£262.99</p>
+                              </div>
+                            </div>
+                
+                            <p class="lead fw-bold mb-4 pb-2" style="color: var(--first-color);">Tracking Order</p>
+                
+                            <div class="row">
+                              <div class="col-lg-12">
+                
+                                <div class="horizontal-timeline">
+                
+                                  <ul class="list-inline items d-flex justify-content-between">
+                                    <li class="list-inline-item items-list">
+                                      <p class="py-1 px-2 rounded text-white" style="background-color: var(--first-color);">Ordered</p
+                                        class="py-1 px-2 rounded text-white" style="background-color: #f37a27;">
+                                    </li>
+                                    <li class="list-inline-item items-list">
+                                      <p class="py-1 px-2 rounded text-white" style="background-color: var(--first-color);">Shipped</p
+                                        class="py-1 px-2 rounded text-white" style="background-color: #f37a27;">
+                                    </li>
+                                    <li class="list-inline-item items-list">
+                                      <p class="py-1 px-2 rounded text-white" style="background-color: var(--first-color);">On the way
+                                      </p>
+                                    </li>
+                                    <li class="list-inline-item items-list text-end" style="margin-right: 8px;">
+                                      <p style="margin-right: -8px;">Delivered</p>
+                                    </li>
+                                  </ul>
+                
+                                </div>
+                
+                              </div>
+                            </div>
+                
+                            <p class="mt-4 pt-2 mb-0">Want any help? <a href="#!" style="color: var(--first-color);">Please contact
+                                us</a></p>
+                
+                          </div> -->
+                        </div>
+                   
+              </div>
+            </div>
+
+            <div class="tab__content" content id="address">
+              <section class="p-3">
+                <div class="row">
+                  <div class="col-12">
+                    <button
+                      class="btn btn-primary newUser"
+                      data-bs-toggle="modal"
+                      data-bs-target="#userForm"
+                    >
+                      New Product <i class="bi bi-people"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-12">
+                    <table
+                      class="table table-striped table-hover mt-3 text-center table-bordered"
+                    >
+                      <thead>
+                        <tr>
+                          <th>S.No</th>
+                          <th>Picture</th>
+                          <th>BackFace</th>
+                          <th>Product Name</th>
+                          <th>Stock</th>
+                          <th>New Price</th>
+                          <th>Old Price</th>
+                          <th>Badge</th>
+                          <th>Category</th>
+                          <th>Start Date</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+
+                      <tbody id="data"></tbody>
+                    </table>
+                  </div>
+                </div>
+              </section>
+
+              <!--Modal Form-->
+              <div class="modal fade" id="userForm">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Fill the Form</h4>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+
+                    <div class="modal-body">
+                      <form action="#" id="myForm">
+                        <div class="card imgholder">
+                          <label for="imgInput" class="upload">
+                            <input type="file" name="" id="imgInput" />
+                            <i class="bi bi-plus-circle-dotted"></i>
+                          </label>
+                          <img
+                            src="./image/Profile Icon.webp"
+                            alt=""
+                            width="200"
+                            height="200"
+                            class="img"
+                          />
+                        </div>
+                        <div class="card imgholder">
+                          <label for="imgInput1" class="upload">
+                            <input type="file" name="" id="imgInput1" />
+                            <i class="bi bi-plus-circle-dotted"></i>
+                          </label>
+                          <img
+                            src="./image/Profile Icon.webp"
+                            alt=""
+                            width="200"
+                            height="200"
+                            class="img"
+                          />
+                        </div>
+
+                        <div class="inputField">
+                          <div>
+                            <label for="name">Product Name:</label>
+                            <input type="text" name="" id="name" required />
+                          </div>
+                          <div>
+                            <label for="stock">Stock:</label>
+                            <input type="number" name="" id="stock" required />
+                          </div>
+                          <div>
+                            <label for="newPrice">New Price:</label>
+                            <input type="text" name="" id="newPrice" required />
+                          </div>
+                          <div>
+                            <label for="oldPrice">Old Price :</label>
+                            <input type="text" name="" id="oldPrice" required />
+                          </div>
+                          <div>
+                            <label for="badge">Badge:</label>
+                            <input
+                              type="text"
+                              name=""
+                              id="badge"
+                              minlength="11"
+                              maxlength="11"
+                              required
+                            />
+                          </div>
+                          <div>
+                            <label for="category">Category:</label>
+                            <input type="text" name="" id="category" required />
+                          </div>
+                          <div>
+                            <label for="sDate">Start Date:</label>
+                            <input type="date" name="" id="sDate" required />
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                      <button
+                        type="submit"
+                        form="myForm"
+                        class="btn btn-primary submit"
+                      >
+                        Submit
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--Read Data Modal-->
+              <div class="modal fade" id="readData">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Profile</h4>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+
+                    <div class="modal-body">
+                      <form action="#" id="myForm">
+                        <div class="card imgholder">
+                          <img
+                            src="./image/Profile Icon.webp"
+                            alt=""
+                            width="200"
+                            height="200"
+                            class="showImg"
+                          />
+                        </div>
+                        <div class="card imgholder">
+                          <img
+                            src="./image/Profile Icon.webp"
+                            alt=""
+                            width="200"
+                            height="200"
+                            class="showImg1"
+                          />
+                        </div>
+
+                        <div class="inputField">
+                          <div>
+                            <label for="name">Product Name:</label>
+                            <input type="text" name="" id="showName" disabled />
+                          </div>
+                          <div>
+                            <label for="age">Stock:</label>
+                            <input
+                              type="number"
+                              name=""
+                              id="showStock"
+                              disabled
+                            />
+                          </div>
+                          <div>
+                            <label for="city">New Price:</label>
+                            <input
+                              type="text"
+                              name=""
+                              id="showNewPrice"
+                              disabled
+                            />
+                          </div>
+                          <div>
+                            <label for="email">Old Price:</label>
+                            <input
+                              type="text"
+                              name=""
+                              id="showOldPrice"
+                              disabled
+                            />
+                          </div>
+                          <div>
+                            <label for="badge">Badge:</label>
+                            <input
+                              type="text"
+                              name=""
+                              id="showBadge"
+                              minlength="11"
+                              maxlength="11"
+                              disabled
+                            />
+                          </div>
+                          <div>
+                            <label for="category">Category:</label>
+                            <input
+                              type="text"
+                              name=""
+                              id="showCategory"
+                              disabled
+                            />
+                          </div>
+                          <div>
+                            <label for="sDate">Start Date:</label>
+                            <input
+                              type="date"
+                              name=""
+                              id="showsDate"
+                              disabled
+                            />
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab__content" content id="change-password">
+              <h3 class="tab__header">Change Password</h3>
+              <div class="tab__body">
+                <form action="" class="form grid">
+                  <input
+                    type="password"
+                    placeholder="Current Password"
+                    class="form__input"
+                  />
+                  <input
+                    type="password"
+                    placeholder="New Password"
+                    class="form__input"
+                  />
+                  <input
+                    type="password"
+                    placeholder="Confirm New Password"
+                    class="form__input"
+                  />
+                  <div class="form__btn">
+                    <button class="btn btn--md">Save</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="newsletter section home__newsletter">
+        <div class="newsletter__container container grid">
+          <h3 class="newsletter__title flex">
+            <img
+              src="../assets/img/icon-email.svg"
+              alt=""
+              class="newsletter__icon"
+            />
+            Subscribe to our Newsletter
+          </h3>
+          <p class="newsletter__description">
+            ...and receive %20 coupon for first shopping.
+          </p>
+          <form action="" class="newsletter__form">
+            <input
+              type="text"
+              placeholder="Enter your email"
+              class="newsletter__input"
+            />
+            <button type="submit" class="newsletter__btn">Subscribe</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!--=============== FOOTER ===============-->
+    <footer class="footer container">
+      <div class="footer__container grid">
+        <div class="footer__content">
+          <a href="index.html" class="footer__logo">
+            <img src="../assets/img/logo.svg" alt="" class="footer__logo-img" />
+          </a>
+          <h4 class="footer__subtitle">Contact</h4>
+          <p class="footer__description">
+            <span> Address</span> : Ho Chi Minh City
+          </p>
+          <p class="footer__description"><span> Phone</span> : 0329979798</p>
+          <p class="footer__description">
+            <span> Email</span> : Ngoduy8080@gmail.com
+          </p>
+          <div class="footer__social">
+            <h4 class="footer__subtitle">Follow Me</h4>
+            <div class="footer__social-links flex">
+              <a href="">
+                <img
+                  src="../assets/img/icon-facebook.svg"
+                  alt=""
+                  class="footer__social-icon"
+                />
+              </a>
+              <a href="">
+                <img
+                  src="../assets/img/icon-instagram.svg"
+                  alt=""
+                  class="footer__social-icon"
+                />
+              </a>
+              <a href="">
+                <img
+                  src="../assets/img/icon-pinterest.svg"
+                  alt=""
+                  class="footer__social-icon"
+                />
+              </a>
+              <a href="">
+                <img
+                  src="../assets/img/icon-twitter.svg"
+                  alt=""
+                  class="footer__social-icon"
+                />
+              </a>
+              <a href="">
+                <img
+                  src="../assets/img/icon-youtube.svg"
+                  alt=""
+                  class="footer__social-icon"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="footer__content">
+          <h3 class="footer__title">Address</h3>
+          <ul class="footer__links">
+            <li><a href="" class="footer__link">About Us</a></li>
+            <li><a href="" class="footer__link">Delivery Information</a></li>
+            <li><a href="" class="footer__link">Privacy Policy</a></li>
+            <li><a href="" class="footer__link">Terms & Conditions</a></li>
+            <li><a href="" class="footer__link">Contact Us</a></li>
+            <li><a href="" class="footer__link">Support Center</a></li>
+          </ul>
+        </div>
+        <div class="footer__content">
+          <h3 class="footer__title">My Account</h3>
+          <ul class="footer__links">
+            <li><a href="" class="footer__link">Sign In</a></li>
+            <li><a href="" class="footer__link">View Information</a></li>
+            <li><a href="" class="footer__link">Privacy Policy</a></li>
+            <li><a href="" class="footer__link">Terms & Conditions</a></li>
+            <li><a href="" class="footer__link">Contact Us</a></li>
+            <li><a href="" class="footer__link">Support Center</a></li>
+          </ul>
+        </div>
+        <div class="footer__content">
+          <h3 class="footer__title">Secured Payment Gateways</h3>
+          <img
+            src="../assets/img/payment-method.png"
+            alt=""
+            class="payment__img"
+          />
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="coppyright">&copy; 2023 . All right reserved</p>
+        <p class="designer">Design by NgoDuy</p>
+      </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!--=============== SWIPER JS ===============-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!--=============== MAIN JS ===============-->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const tabs = document.querySelectorAll(".account__tab");
+        const tabContents = document.querySelectorAll(".tab__content");
+
+        tabs.forEach((tab) => {
+          tab.addEventListener("click", () => {
+            const targetId = tab.dataset.target;
+            const targetContent = document.querySelector(targetId);
+
+            tabs.forEach((tab) => {
+              tab.classList.remove("active-tab");
+            });
+
+            tabContents.forEach((content) => {
+              content.classList.remove("active-tab");
+            });
+
+            tab.classList.add("active-tab");
+            targetContent.classList.add("active-tab");
+          });
+        });
+      });
+    </script>
+       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+       <script
+         src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+         crossorigin="anonymous"
+       ></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/shop.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/account.js"></script>
+  </body>
+</html>

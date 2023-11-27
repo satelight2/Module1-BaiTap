@@ -1,0 +1,13 @@
+.login-register__container {
+  grid-template-columns: repeat(2, 1fr);
+  align-items: flex-start;
+}
+.login,
+.register {
+  border: 1px solid var(--border-color-alt);
+  padding: 2rem;
+  border-radius: 0.25rem;
+}
+.form__btn button:hover {
+  cursor: pointer;
+}

@@ -187,63 +187,9 @@
         <input type="text" id="search" oninput="delayedSearch()" placeholder="tìm kiếm theo tên bánh">
     </div>
     <div class="product">
-        <!-- <div class="product__item">
-            <div class="product__item--image">
-                <img src="./image/photo-1541491008689-b5d3c6615e2e.avif" alt="">
-            </div>
-            <p class="product__item--name">
-                name : bánh ngọt
-            </p>
-            <p class="product__item--price">
-                price : 5000
-            </p>
-            <p class="product__item--cart">
-                buy cart
-                <span class="material-symbols-outlined">
-                    shopping_cart
-                </span>
-
-            </p>
-        </div>
-        <div class="product__item">
-            <div class="product__item--image">
-                <img src="./image/photo-1541491008689-b5d3c6615e2e.avif" alt="">
-            </div>
-            <p class="product__item--name">
-                name
-            </p>
-            <p class="product__item--price">
-                500000
-            </p>
-            <p class="product__item--image">cart</p>
-        </div>
-        <div class="product__item">
-            <div class="product__item--image">
-                <img src="./image/photo-1541491008689-b5d3c6615e2e.avif" alt="">
-            </div>
-            <p class="product__item--name">
-                name
-            </p>
-            <p class="product__item--price">
-                500000
-            </p>
-            <p class="product__item--image">cart</p>
-        </div>
-        -->
     </div>
     <div class="pages">
         <ul class="list-page">
-            <!-- <span class="material-symbols-outlined pre">
-                arrow_back_ios
-            </span>
-            <li class="page-item">1</li>
-            <li class="page-item">1</li>
-            <li class="page-item">1</li>
-            <li class="page-item">1</li>
-            <li class="page-item">1</li>
-            <span class="material-symbols-outlined next">
-                arrow_forward_ios
-            </span> -->
         </ul>
     </div>
     <!-- 
@@ -358,9 +304,12 @@
         function totalPages(pages) {
             totalPage = Math.ceil(pages.length / itemPage);
         }
+       
         totalPages(products);
+
         // viết function hiển thị danh sách sản phẩm
         function showProduct(param) {
+            console.log("11211", param);
             let text = "";
             for (let i = 0; i < param.length; i++) {
                 if (i >= start && i < end) {
@@ -526,9 +475,6 @@
         }
         delayedSearch();
 
-
-
-    
     </script>
 
 
